@@ -33,6 +33,23 @@ li a:hover {
             height: 54px;
             width: 1341px;
         }
+        .auto-style2 {
+            margin-left: 40px;
+        }
+        .auto-style3 {
+            margin-left: 40px;
+            height: 0px;
+        }
+        .auto-style4 {
+            width: 157px;
+        }
+        .auto-style5 {
+            width: 108px;
+        }
+        .auto-style6 {
+            
+            height: 432px;
+        }
     </style>
 </head>
     
@@ -47,32 +64,32 @@ li a:hover {
      <li class="nav-item"><a class="nav-link" runat="server" href="WebForm2.aspx">Manger page</a></li>
     <li class="nav-item"><a class="nav-link" runat="server" href="WebForm3.aspx">Human Resource</a></li>
 </ul>
-    </div>
+    
             <p>
                 &nbsp;</p>
-            <div>
-                LECTURE ID:<asp:TextBox ID="LectureIDTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px"></asp:TextBox>
+            <div class="auto-style2">
+                LECTURE ID:<asp:TextBox ID="LectureIDTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px" style="margin-left: 86px"></asp:TextBox>
             </div>
-            <div>
-                LECTURE NAME:<asp:TextBox ID="LectureNameTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" Width="157px"></asp:TextBox>
+            <div class="auto-style2">
+                LECTURE NAME:<asp:TextBox ID="LectureNameTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" Width="157px" style="margin-left: 57px"></asp:TextBox>
             </div>
-            <div>
-                MODULE CODE:<asp:TextBox ID="ModuleCodeTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px"></asp:TextBox>
+            <div class="auto-style2">
+                MODULE CODE:<asp:TextBox ID="ModuleCodeTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px" style="margin-left: 67px"></asp:TextBox>
             </div>
-            <div>
-                MODULE NAME:<asp:TextBox ID="ModuleNameTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px"></asp:TextBox>
+            <div class="auto-style2">
+                MODULE NAME:<asp:TextBox ID="ModuleNameTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px" style="margin-left: 62px"></asp:TextBox>
             </div>
-            <div>
-                CELLPHONE NUMBER:<asp:TextBox ID="CellTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" TextMode="Phone" Width="157px"></asp:TextBox>
+            <div class="auto-style2">
+                CELLPHONE NUMBER:<asp:TextBox ID="CellTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" TextMode="Phone" Width="157px" style="margin-left: 15px"></asp:TextBox>
             </div>
-            <div>
-                HOUR:<asp:TextBox ID="HourTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" TextMode="Number" Width="157px"></asp:TextBox>
+            <div class="auto-style2">
+                HOUR:<asp:TextBox ID="HourTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" TextMode="Number" Width="157px" style="margin-left: 141px"></asp:TextBox>
             </div>
-            <div>
-                EMAIL:<asp:TextBox ID="EmailTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" TextMode="Email" Width="157px"></asp:TextBox>
+            <div class="auto-style2">
+                EMAIL:<asp:TextBox ID="EmailTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" TextMode="Email" Width="157px" style="margin-left: 134px"></asp:TextBox>
             </div>
-            <div>
-                SALARY:<asp:TextBox ID="SalaryTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" TextMode="Number" Width="157px"></asp:TextBox><br />
+            <div class="auto-style2">
+                SALARY:<asp:TextBox ID="SalaryTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" TextMode="Number" Width="157px" style="margin-left: 127px"></asp:TextBox><br />
             </div>
 
             <p>
@@ -83,32 +100,27 @@ li a:hover {
                 <asp:TextBox ID="fileNameTextBox" runat="server" CssClass="auto-style17"></asp:TextBox>
             </p>
 
-            <p>
+            <p class="auto-style5">
                 <asp:Button ID="BtnSave" runat="server" CssClass="auto-style4"
                             Text="SAVE"
-                            OnClick="BtnSave_Click"/>
+                            OnClick="BtnSave_Click" style="margin-left: 25px"/>
             </p>
-            <asp:GridView ID="GridView1" runat="server" Width="389px" CellPadding="4" ForeColor="#333333" GridLines="None">
-                <AlternatingRowStyle BackColor="#c4c0bf" />
-                <EditRowStyle BackColor="#7C6F57" />
-                <FooterStyle BackColor="#c4c0bf" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#c4c0bf" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BorderColor="#6699FF" BackColor="#E3EAEB" />
-                <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                <SortedAscendingHeaderStyle BackColor="#246B61" />
-                <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                <SortedDescendingHeaderStyle BackColor="#15524A" />
-            </asp:GridView>
-
-            <br /><br /><br />
-
-            
-
-            <!-- Logout Button -->
-            <br /><br />
+            <div class="auto-style6">
+                <asp:GridView ID="GridView1" runat="server" Width="389px" CellPadding="4" ForeColor="#333333">
+                    <AlternatingRowStyle BackColor="#c4c0bf" />
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="Black" Font-Bold="True" ForeColor="White" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" />
+                    <HeaderStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BorderColor="#6699FF" BackColor="#E3EAEB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                </asp:GridView>
+        </div>
+  
         </form>
-    </div>
-</body>
+
 </html>

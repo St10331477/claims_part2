@@ -39,27 +39,22 @@ li a:hover {
         }
     </style>
 </head>
-<body>
+<body style="height: 964px">
     
     <form id="form2" runat="server" style="font-weight: bold; background-color: #C0C0C0;" class="auto-style25" >
 
-        <div class="auto-style22"/>
-    <li class ="display: block; color: white; text-align: center; padding: 14px 16px;text-decoration: none;"
-    <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+      
+
         <h1 class="auto-style21" style="font-size: 65px">WORKZONE</h1>
-    </div>
-        <p class="auto-style21" style="font-size: 65px">
-            &nbsp;</p>
-        <div class="auto-style22"/>
-    <li class ="auto-style1"
-    <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+    
+
 <ul class="auto-style2" style="border-style: solid; border-width: thin">
     <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
     <li class="nav-item"><a class="nav-link" runat="server" href="WebForm1.aspx">Add Claims</a></li>
      <li class="nav-item"><a class="nav-link" runat="server" href="WebForm2.aspx">Manger page</a></li>
     <li class="nav-item"><a class="nav-link" runat="server" href="WebForm3.aspx">Human Resource</a></li>
 </ul>
-    </div>
+    
             <p class="auto-style26">
                 <asp:Label ID="Label3" runat="server" Text="UPDATE INFORMATION"></asp:Label>
         </p>
@@ -112,16 +107,9 @@ li a:hover {
         <asp:Button ID="BtnDownload" runat="server" CssClass="auto-style24" Text="DOWNLOAD" OnClick="BtnDownload_Click" />
         <br />
 
-            
 
-            <!-- Logout Button -->
-            <br /><br />
         </form>
-    </div>
+    
 </body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
+
 </html>
