@@ -1,10 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="claims_part2.WebForm1" Theme="" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm3.aspx.cs" Inherits="claims_part2.WebForm3" %>
 
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Add Claim</title>
+    <title></title>
     <style type="text/css">
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -30,62 +32,66 @@ li a:hover {
   background-color: #111;
 }
         .auto-style1 {
-            height: 54px;
-            width: 1341px;
+            width: 1316px;
+        }
+        .auto-style2 {
+            height: 51px;
         }
     </style>
 </head>
+<body>
     
-    <form id="form1" runat="server" style="font-weight: bold; background-color: #C0C0C0;" >
+    <form id="form2" runat="server" style="font-weight: bold; background-color: #C0C0C0;" class="auto-style25" >
 
-
+        <div class="auto-style22"/>
+    <li class ="display: block; color: white; text-align: center; padding: 14px 16px;text-decoration: none;"
+    <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
         <h1 class="auto-style21" style="font-size: 65px">WORKZONE</h1>
- 
-<ul class="auto-style1" style="border-style: solid; border-width: thin">
+    </div>
+        <p class="auto-style21" style="font-size: 65px">
+            &nbsp;</p>
+        <div class="auto-style22"/>
+    <li class ="auto-style1"
+    <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+<ul class="auto-style2" style="border-style: solid; border-width: thin">
     <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
     <li class="nav-item"><a class="nav-link" runat="server" href="WebForm1.aspx">Add Claims</a></li>
      <li class="nav-item"><a class="nav-link" runat="server" href="WebForm2.aspx">Manger page</a></li>
     <li class="nav-item"><a class="nav-link" runat="server" href="WebForm3.aspx">Human Resource</a></li>
 </ul>
     </div>
-            <p>
-                &nbsp;</p>
-            <div>
+            <p class="auto-style26">
+                <asp:Label ID="Label3" runat="server" Text="UPDATE INFORMATION"></asp:Label>
+        </p>
+            <div class="auto-style26">
                 LECTURE ID:<asp:TextBox ID="LectureIDTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px"></asp:TextBox>
+                <br />
+                <br />
             </div>
-            <div>
+            <div class="auto-style26">
                 LECTURE NAME:<asp:TextBox ID="LectureNameTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" Width="157px"></asp:TextBox>
             </div>
-            <div>
+            <div class="auto-style26">
                 MODULE CODE:<asp:TextBox ID="ModuleCodeTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px"></asp:TextBox>
             </div>
-            <div>
+            <div class="auto-style26">
                 MODULE NAME:<asp:TextBox ID="ModuleNameTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px"></asp:TextBox>
             </div>
-            <div>
+            <div class="auto-style26">
                 CELLPHONE NUMBER:<asp:TextBox ID="CellTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" TextMode="Phone" Width="157px"></asp:TextBox>
             </div>
-            <div>
+            <div class="auto-style26">
                 HOUR:<asp:TextBox ID="HourTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" TextMode="Number" Width="157px"></asp:TextBox>
             </div>
-            <div>
+            <div class="auto-style26">
                 EMAIL:<asp:TextBox ID="EmailTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" TextMode="Email" Width="157px"></asp:TextBox>
             </div>
-            <div>
+            <div class="auto-style26">
                 SALARY:<asp:TextBox ID="SalaryTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" TextMode="Number" Width="157px"></asp:TextBox><br />
             </div>
-
-            <p>
-                <asp:Label ID="Label1" runat="server" Text="SELECT FILE"></asp:Label>
-                <asp:FileUpload ID="FileUpload1" runat="server" CssClass="auto-style13"/>
-                &nbsp;
-                <asp:Label ID="Label2" runat="server" Text="File Name"></asp:Label>
-                <asp:TextBox ID="fileNameTextBox" runat="server" CssClass="auto-style17"></asp:TextBox>
-            </p>
-
-            <p>
-                <asp:Button ID="BtnSave" runat="server" CssClass="auto-style4"
-                            Text="SAVE"
+        <p>
+                <asp:Button ID="BtnUpdate" runat="server" CssClass="auto-style4"
+                            Text="UPDATE"
                             OnClick="BtnSave_Click"/>
             </p>
             <asp:GridView ID="GridView1" runat="server" Width="389px" CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -102,7 +108,9 @@ li a:hover {
                 <SortedDescendingHeaderStyle BackColor="#15524A" />
             </asp:GridView>
 
-            <br /><br /><br />
+            <br /><br />
+        <asp:Button ID="BtnDownload" runat="server" CssClass="auto-style24" Text="DOWNLOAD" OnClick="BtnDownload_Click" />
+        <br />
 
             
 
@@ -110,5 +118,10 @@ li a:hover {
             <br /><br />
         </form>
     </div>
+</body>
+    <form id="form1" runat="server">
+        <div>
+        </div>
+    </form>
 </body>
 </html>

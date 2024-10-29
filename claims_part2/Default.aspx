@@ -9,43 +9,26 @@
         </section>
 
         <div class="row">
-            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+           
                 <h2 id="gettingStartedTitle">System Overview</h2>
                 <p>
                     The Work Zone Claim System enables part-time lecturers to:
-                </p>
-                <p>
                     - Easily submit claims for worked hours
-                </p>
-                <p>
                     - Track claim status and history
-                </p>
-                <p>
                     - View payment information
-                </p>
-                <p>
                     - Manage personal profile and account settings
                 </p>
-                <p>
-                    &nbsp;</p>
-            </section>
-            <section class="col-md-4" aria-labelledby="librariesTitle">
+
+            
                 <h2 id="librariesTitle">Key Benefits</h2>
                 <p>
                     - Convenient online access -
-                </p>
-                <p>
                     -Automated claim processing
-                </p>
-                <p>
                     - Reduced paperwork and administrative tasks </p>
-                <p>
                     - Enhanced transparency and accountability
-                </p>
-                <p>
                     - Faster payment processing
                 </p>
-            </section>
+            
         </div>
     </main>
 
