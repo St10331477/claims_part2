@@ -29,14 +29,24 @@ li a {
 li a:hover {
   background-color: #111;
 }
+        .auto-style1 {
+            height: 45px;
+            width: 1431px;
+        }
+        .auto-style2 {
+            height: 945px;
+        }
+        .auto-style3 {
+            margin-left: 25px;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server" style="background-color: #009999">
-        <div class="auto-style16">
+        <div class="auto-style2">
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <h1 style="font-size: 65px">WORK ZONE</h1>
-                <ul class="navbar-nav flex-grow-1" style="border-style: solid; border-width: thin">
+                <ul class="auto-style1" style="border-style: solid; border-width: thin">
                     <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" runat="server" href="WebForm1.aspx">Add Claims</a></li>
                     <li class="nav-item"><a class="nav-link" runat="server" href="WebForm2.aspx">Manager Page</a></li>
@@ -51,7 +61,7 @@ li a:hover {
                 <asp:TextBox ID="STATUSTextBox" runat="server" CssClass="auto-style17"></asp:TextBox>
             </p>
 
-            <asp:GridView ID="LectureViewGrid" runat="server" AutoGenerateColumns="False" DataKeyNames="LectureID" DataSourceID="SqlDataSource1" ShowHeaderWhenEmpty="True" CellPadding="4" ForeColor="#333333" AutoGenerateEditButton="True" AutoGenerateSelectButton="True">
+            <asp:GridView ID="LectureViewGrid" runat="server" AutoGenerateColumns="False" DataKeyNames="LectureID" DataSourceID="SqlDataSource1" ShowHeaderWhenEmpty="True" CellPadding="4" ForeColor="#333333" AutoGenerateEditButton="True" AutoGenerateSelectButton="True" CssClass="auto-style3" Width="1218px">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="LectureID" HeaderText="LectureID" ReadOnly="True" SortExpression="LectureID" />
@@ -80,8 +90,7 @@ li a:hover {
             <asp:SqlDataSource ID='SqlDataSource1' runat='server' ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand='SELECT * FROM [TBLLECTURECLAIM]'></asp:SqlDataSource>
 
             <br />
-            <asp:Button ID='BtnAccept' runat='server' BackColor='#00CC00' CssClass='auto-style14' Height='39px' Text='UPLOAD' Width='721px' OnClick='BtnAccept_Click' Font-Bold="True" Font-Size="Large" Font-Underline="True"/>
-            <br /><br /><br /><br /><br /><br />
+            <asp:Button ID='BtnAccept' runat='server' BackColor='#00CC00' CssClass='auto-style14' Height='39px' Text='UPLOAD' Width='721px' OnClick='BtnAccept_Click' Font-Bold="True" Font-Size="Large" Font-Underline="True" style="margin-left: 278px"/>
         </div>
     </form>
 </body>

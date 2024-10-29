@@ -30,8 +30,8 @@ li a:hover {
   background-color: #111;
 }
         .auto-style1 {
-            height: 54px;
-            width: 1341px;
+            height: 46px;
+            width: 1553px;
         }
         .auto-style2 {
             margin-left: 40px;
@@ -68,28 +68,49 @@ li a:hover {
             <p>
                 &nbsp;</p>
             <div class="auto-style2">
-                LECTURE ID:<asp:TextBox ID="LectureIDTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px" style="margin-left: 86px"></asp:TextBox>
+                LECTURE ID:<asp:TextBox ID="LectureIDTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px" style="margin-left: 86px" Height="15px"></asp:TextBox>
+                <br />
+                <br />
             </div>
+
             <div class="auto-style2">
-                LECTURE NAME:<asp:TextBox ID="LectureNameTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" Width="157px" style="margin-left: 57px"></asp:TextBox>
+                LECTURE NAME:<asp:TextBox ID="LectureNameTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" Width="157px" style="margin-left: 57px" Height="15px"></asp:TextBox>
+                <br />
+                <br />
             </div>
+
             <div class="auto-style2">
-                MODULE CODE:<asp:TextBox ID="ModuleCodeTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px" style="margin-left: 67px"></asp:TextBox>
+                MODULE CODE:<asp:TextBox ID="ModuleCodeTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px" style="margin-left: 67px" Height="15px"></asp:TextBox>
+                <br />
+                <br />
             </div>
+
             <div class="auto-style2">
-                MODULE NAME:<asp:TextBox ID="ModuleNameTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px" style="margin-left: 62px"></asp:TextBox>
+                MODULE NAME:<asp:TextBox ID="ModuleNameTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px" style="margin-left: 62px" Height="15px"></asp:TextBox>
+                <br />
+                <br />
             </div>
+
             <div class="auto-style2">
-                CELLPHONE NUMBER:<asp:TextBox ID="CellTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" TextMode="Phone" Width="157px" style="margin-left: 15px"></asp:TextBox>
+                CELLPHONE NUMBER:<asp:TextBox ID="CellTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" TextMode="Phone" Width="157px" style="margin-left: 15px" Height="15px"></asp:TextBox>
+                <br />
+                <br />
             </div>
+
             <div class="auto-style2">
-                HOUR:<asp:TextBox ID="HourTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" TextMode="Number" Width="157px" style="margin-left: 141px"></asp:TextBox>
+                HOUR:<asp:TextBox ID="HourTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" TextMode="Number" Width="157px" style="margin-left: 141px" Height="15px"></asp:TextBox>
+                <br />
+                <br />
             </div>
+
             <div class="auto-style2">
-                EMAIL:<asp:TextBox ID="EmailTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" TextMode="Email" Width="157px" style="margin-left: 134px"></asp:TextBox>
+                EMAIL:<asp:TextBox ID="EmailTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" TextMode="Email" Width="157px" style="margin-left: 134px" Height="15px"></asp:TextBox>
+                <br />
+                <br />
             </div>
+
             <div class="auto-style2">
-                SALARY:<asp:TextBox ID="SalaryTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" TextMode="Number" Width="157px" style="margin-left: 127px"></asp:TextBox><br />
+                SALARY:<asp:TextBox ID="SalaryTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" TextMode="Number" Width="157px" style="margin-left: 127px" Height="15px"></asp:TextBox><br />
             </div>
 
             <p>
@@ -97,7 +118,7 @@ li a:hover {
                 <asp:FileUpload ID="FileUpload1" runat="server" CssClass="auto-style13"/>
                 &nbsp;
                 <asp:Label ID="Label2" runat="server" Text="File Name"></asp:Label>
-                <asp:TextBox ID="fileNameTextBox" runat="server" CssClass="auto-style17"></asp:TextBox>
+                <asp:TextBox ID="fileNameTextBox" runat="server" CssClass="auto-style17" Height="20px"></asp:TextBox>
             </p>
 
             <p class="auto-style5">
