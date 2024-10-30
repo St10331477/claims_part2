@@ -42,6 +42,15 @@ namespace claims_part2
         protected global::System.Web.UI.WebControls.TextBox LectureIDTextBox;
 
         /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
         /// LectureNameTextBox control.
         /// </summary>
         /// <remarks>
@@ -105,13 +114,22 @@ namespace claims_part2
         protected global::System.Web.UI.WebControls.TextBox SalaryTextBox;
 
         /// <summary>
-        /// BtnUpdate control.
+        /// BtnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnUpdate;
+        protected global::System.Web.UI.WebControls.Button BtnSave;
+
+        /// <summary>
+        /// BtnINVOICES control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnINVOICES;
 
         /// <summary>
         /// GridView1 control.
@@ -121,14 +139,5 @@ namespace claims_part2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
-
-        /// <summary>
-        /// BtnDownload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnDownload;
     }
 }

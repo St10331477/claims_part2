@@ -39,11 +39,14 @@ li a:hover {
         .auto-style3 {
             margin-left: 25px;
         }
+        .auto-style4 {
+            margin-left: 40px;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server" style="background-color: #009999">
-        <div class="auto-style2">
+        <div class="auto-style2" style="background-color: #808080">
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <h1 style="font-size: 65px">WORK ZONE</h1>
                 <ul class="auto-style1" style="border-style: solid; border-width: thin">
@@ -54,7 +57,7 @@ li a:hover {
                 </ul>
             </div>
 
-            <p style="font-weight: bold">
+            <p style="font-weight: bold" class="auto-style4">
                 LECTURE ID:<asp:TextBox ID="LectureIDTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Label1" runat="server" Text="STATUS:" Font-Bold="True"></asp:Label>
@@ -79,7 +82,7 @@ li a:hover {
                 <FooterStyle BackColor="#00b8a9" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#e1eded" Font-Bold="True" ForeColor="BLACK" />
                 <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#00b8a9" />
+                <RowStyle BackColor="#CCCCCC" />
                 <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
                 <SortedAscendingCellStyle BackColor="#F8FAFA" />
                 <SortedAscendingHeaderStyle BackColor="#F8FAFA" />
@@ -90,7 +93,7 @@ li a:hover {
             <asp:SqlDataSource ID='SqlDataSource1' runat='server' ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand='SELECT * FROM [TBLLECTURECLAIM]'></asp:SqlDataSource>
 
             <br />
-            <asp:Button ID='BtnAccept' runat='server' BackColor='#00CC00' CssClass='auto-style14' Height='39px' Text='UPLOAD' Width='721px' OnClick='BtnAccept_Click' Font-Bold="True" Font-Size="Large" Font-Underline="True" style="margin-left: 278px"/>
+            <asp:Button ID='BtnAccept' runat='server' BackColor='White' CssClass='auto-style14' Height='39px' Text='UPLOAD' Width='1212px' OnClick='BtnAccept_Click' Font-Bold="True" Font-Size="Large" Font-Underline="True" style="margin-left: 27px"/>
         </div>
     </form>
 </body>
