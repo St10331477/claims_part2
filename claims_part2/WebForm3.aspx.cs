@@ -1,14 +1,11 @@
-﻿using iTextSharp.text;
-using iTextSharp.text.pdf;
-using System;
+﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
-//using System.Reflection.Metadata;
 using System.Web.UI;
 using System.Windows;
-using System.Windows.Documents;
-using System.Xml.Linq;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace claims_part2
 {
@@ -16,12 +13,58 @@ namespace claims_part2
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                GridView1.DataBind(); // Bind data on initial load
+                // Any initialization logic can go here.
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            // Validate Lecture ID input
+            if (string.IsNullOrWhiteSpace(LectureIDTextBox.Text))
+            {
+                MessageBox.Show("Please enter a Lecture ID.");
+                return;
+            }
+
+            try
+            {
+                int lectureID = Convert.ToInt32(LectureIDTextBox.Text);
+
+                // Fetch data from database
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM TBLLECTURECLAIM WHERE LectureID = @LectureID", con))
+                {
+                    cmd.Parameters.AddWithValue("@LectureID", lectureID);
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        // Populate textboxes with data from the database
+                        LectureNameTextBox.Text = reader["LectureName"].ToString();
+                        ModuleCodeTextBox.Text = reader["ModuleCode"].ToString();
+                        ModuleNameTextBox.Text = reader["ModuleName"].ToString();
+                        CellTextBox.Text = reader["CellPhoneNumber"].ToString();
+                        HourTextBox.Text = reader["HOURS"].ToString();
+                        EmailTextBox.Text = reader["Email"].ToString();
+                        SalaryTextBox.Text = reader["SalaryRate"].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No record found with that Lecture ID.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving data: " + ex.Message);
+            }
+            finally
+            {
+                con.Close(); // Ensure connection is closed
             }
         }
 
@@ -30,17 +73,13 @@ namespace claims_part2
             // Validate that a Lecture ID is entered
             if (string.IsNullOrWhiteSpace(LectureIDTextBox.Text))
             {
-                // Display an error message
                 MessageBox.Show("Please enter a Lecture ID.");
                 return;
             }
 
             try
             {
-                // Update the lecture information based on LectureID
-                using (SqlCommand cmd = new SqlCommand(
-                    "UPDATE TBLLECTURECLAIM SET LectureName = @LectureName, ModuleCode = @ModuleCode, ModuleName = @ModuleName, " +
-                    "CellPhoneNumber = @CellPhoneNumber, HOURS = @Hours, Email = @Email, SalaryRate = @SalaryRate WHERE LectureID = @LectureID", con))
+                using (SqlCommand cmd = new SqlCommand("UPDATE TBLLECTURECLAIM SET LectureName = @LectureName, ModuleCode = @ModuleCode, ModuleName = @ModuleName, CellPhoneNumber = @CellPhoneNumber, HOURS = @Hours, Email = @Email, SalaryRate = @SalaryRate WHERE LectureID = @LectureID", con))
                 {
                     cmd.Parameters.AddWithValue("@LectureID", Convert.ToInt32(LectureIDTextBox.Text));
                     cmd.Parameters.AddWithValue("@LectureName", LectureNameTextBox.Text);
@@ -57,7 +96,6 @@ namespace claims_part2
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Information updated successfully.");
-                        GridView1.DataBind(); // Refresh the GridView to show updated data
                     }
                     else
                     {
@@ -77,45 +115,81 @@ namespace claims_part2
 
         protected void BtnINVOICES_Click(object sender, EventArgs e)
         {
-            // Ensure that a row is selected in the GridView
-            if (GridView1.SelectedRow == null)
+            // Ensure that a Lecture ID is entered
+            if (string.IsNullOrWhiteSpace(LectureIDTextBox.Text))
             {
-                MessageBox.Show("Please select a lecture from the grid.");
+                MessageBox.Show("Please enter a Lecture ID.");
                 return;
             }
 
-            // Get selected row data
-            int lectureID = Convert.ToInt32(GridView1.SelectedDataKey.Value);
-            string lectureName = GridView1.SelectedRow.Cells[1].Text; // Assuming LectureName is in column index 1
-            string moduleCode = GridView1.SelectedRow.Cells[2].Text; // Assuming ModuleCode is in column index 2
-            string moduleName = GridView1.SelectedRow.Cells[3].Text; // Assuming ModuleName is in column index 3
-            int hours = Convert.ToInt32(GridView1.SelectedRow.Cells[4].Text); // Assuming HOURS is in column index 4
-            decimal salaryRate = Convert.ToDecimal(GridView1.SelectedRow.Cells[5].Text); // Assuming SalaryRate is in column index 5
-            decimal totalAmount = Convert.ToDecimal(GridView1.SelectedRow.Cells[6].Text); // Assuming TotalAmount is in column index 6
+            try
+            {
+                int lectureID = Convert.ToInt32(LectureIDTextBox.Text);
 
-            // Generate PDF invoice
-            Document pdfDoc = new Document();
-            string pdfPath = Server.MapPath("~/Invoices/Invoice_" + lectureID + ".pdf");
-            PdfWriter.GetInstance(pdfDoc, new FileStream(pdfPath, FileMode.Create));
-            pdfDoc.Open();
+                // Fetch data from database for invoice generation
+                string lectureName, moduleCode, moduleName, cellPhoneNumber, email;
+                int hours;
+                decimal salaryRate;
 
-            // Add content to PDF
-            pdfDoc.Add(new iTextSharp.text.Paragraph("INVOICE"));
-            pdfDoc.Add(new iTextSharp.text.Paragraph($"Lecture ID: {lectureID}"));
-            pdfDoc.Add(new iTextSharp.text.Paragraph($"Lecture Name: {lectureName}"));
-            pdfDoc.Add(new iTextSharp.text.Paragraph($"Module Code: {moduleCode}"));
-            pdfDoc.Add(new iTextSharp.text.Paragraph($"Module Name: {moduleName}"));
-            pdfDoc.Add(new iTextSharp.text.Paragraph($"Hours: {hours}"));
-            pdfDoc.Add(new iTextSharp.text.Paragraph($"Salary Rate: {salaryRate:C}")); // Format as currency
-            pdfDoc.Add(new iTextSharp.text.Paragraph($"Total Amount: {totalAmount:C}")); // Format as currency
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM TBLLECTURECLAIM WHERE LectureID = @LectureID", con))
+                {
+                    cmd.Parameters.AddWithValue("@LectureID", lectureID);
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-            pdfDoc.Close();
+                    if (reader.Read())
+                    {
+                        lectureName = reader["LectureName"].ToString();
+                        moduleCode = reader["ModuleCode"].ToString();
+                        moduleName = reader["ModuleName"].ToString();
+                        cellPhoneNumber = reader["CellPhoneNumber"].ToString();
+                        hours = Convert.ToInt32(reader["HOURS"]);
+                        email = reader["Email"].ToString();
+                        salaryRate = Convert.ToDecimal(reader["SalaryRate"]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No record found with that Lecture ID.");
+                        return; // Exit if no record found
+                    }
+                }
 
-            // Provide download link for the generated PDF
-            Response.ContentType = "application/pdf";
-            Response.AppendHeader("Content-Disposition", "attachment; filename=Invoice_" + lectureID + ".pdf");
-            Response.TransmitFile(pdfPath);
-            Response.End();
+                // Generate PDF invoice
+                Document pdfDoc = new Document();
+                string pdfPath = Server.MapPath("~/Invoices/Invoice_" + lectureID + ".pdf");
+                PdfWriter.GetInstance(pdfDoc, new FileStream(pdfPath, FileMode.Create));
+                pdfDoc.Open();
+
+                // Add content to PDF
+                pdfDoc.Add(new Paragraph("INVOICE"));
+                pdfDoc.Add(new Paragraph($"Lecture ID: {lectureID}"));
+                pdfDoc.Add(new Paragraph($"Lecture Name: {lectureName}"));
+                pdfDoc.Add(new Paragraph($"Module Code: {moduleCode}"));
+                pdfDoc.Add(new Paragraph($"Module Name: {moduleName}"));
+                pdfDoc.Add(new Paragraph($"Cell Phone Number: {cellPhoneNumber}"));
+                pdfDoc.Add(new Paragraph($"Hours Worked: {hours}"));
+                pdfDoc.Add(new Paragraph($"Email: {email}"));
+                pdfDoc.Add(new Paragraph($"Salary Rate: {salaryRate:C}")); // Format as currency
+
+                decimal totalAmount = hours * salaryRate; // Calculate total amount
+                pdfDoc.Add(new Paragraph($"Total Amount Due: {totalAmount:C}")); // Format as currency
+
+                pdfDoc.Close();
+
+                // Provide download link for the generated PDF
+                Response.ContentType = "application/pdf";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=Invoice_" + lectureID + ".pdf");
+                Response.TransmitFile(pdfPath);
+                Response.End();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error generating invoice: " + ex.Message);
+            }
+            finally
+            {
+                con.Close(); // Ensure connection is closed
+            }
         }
     }
 }

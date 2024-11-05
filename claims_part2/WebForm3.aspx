@@ -83,7 +83,7 @@ li a:hover {
             <div class="auto-style9">
                 LECTURE ID:<asp:TextBox ID="LectureIDTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" Width="157px" style="margin-left: 86px" Height="15px"></asp:TextBox>
                 <br />
-                <asp:Button ID="Button1" runat="server" Text="SEARCH" />
+                <asp:Button ID="Button1" runat="server" Text="SEARCH" OnClick="Button1_Click" />
                 <br />
             </div>
 
