@@ -47,10 +47,7 @@ namespace claims_part2
                         LectureNameTextBox.Text = reader["LectureName"].ToString();
                         ModuleCodeTextBox.Text = reader["ModuleCode"].ToString();
                         ModuleNameTextBox.Text = reader["ModuleName"].ToString();
-                        CellTextBox.Text = reader["CellPhoneNumber"].ToString();
-                        HourTextBox.Text = reader["HOURS"].ToString();
-                        EmailTextBox.Text = reader["Email"].ToString();
-                        SalaryTextBox.Text = reader["SalaryRate"].ToString();
+                     
                     }
                     else
                     {
@@ -85,10 +82,10 @@ namespace claims_part2
                     cmd.Parameters.AddWithValue("@LectureName", LectureNameTextBox.Text);
                     cmd.Parameters.AddWithValue("@ModuleCode", Convert.ToInt32(ModuleCodeTextBox.Text));
                     cmd.Parameters.AddWithValue("@ModuleName", ModuleNameTextBox.Text);
-                    cmd.Parameters.AddWithValue("@CellPhoneNumber", CellTextBox.Text);
+                    /*cmd.Parameters.AddWithValue("@CellPhoneNumber", CellTextBox.Text);
                     cmd.Parameters.AddWithValue("@Hours", Convert.ToInt32(HourTextBox.Text));
                     cmd.Parameters.AddWithValue("@Email", EmailTextBox.Text);
-                    cmd.Parameters.AddWithValue("@SalaryRate", Convert.ToDecimal(SalaryTextBox.Text));
+                    cmd.Parameters.AddWithValue("@SalaryRate", Convert.ToDecimal(SalaryTextBox.Text));*/
 
                     con.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
@@ -142,10 +139,10 @@ namespace claims_part2
                         lectureName = reader["LectureName"].ToString();
                         moduleCode = reader["ModuleCode"].ToString();
                         moduleName = reader["ModuleName"].ToString();
-                        cellPhoneNumber = reader["CellPhoneNumber"].ToString();
+                        /*cellPhoneNumber = reader["CellPhoneNumber"].ToString();
                         hours = Convert.ToInt32(reader["HOURS"]);
                         email = reader["Email"].ToString();
-                        salaryRate = Convert.ToDecimal(reader["SalaryRate"]);
+                        salaryRate = Convert.ToDecimal(reader["SalaryRate"]);*/
                     }
                     else
                     {
@@ -166,13 +163,13 @@ namespace claims_part2
                 pdfDoc.Add(new Paragraph($"Lecture Name: {lectureName}"));
                 pdfDoc.Add(new Paragraph($"Module Code: {moduleCode}"));
                 pdfDoc.Add(new Paragraph($"Module Name: {moduleName}"));
-                pdfDoc.Add(new Paragraph($"Cell Phone Number: {cellPhoneNumber}"));
-                pdfDoc.Add(new Paragraph($"Hours Worked: {hours}"));
-                pdfDoc.Add(new Paragraph($"Email: {email}"));
-                pdfDoc.Add(new Paragraph($"Salary Rate: {salaryRate:C}")); // Format as currency
+                /*  pdfDoc.Add(new Paragraph($"Cell Phone Number: {cellPhoneNumber}"));
+                  pdfDoc.Add(new Paragraph($"Hours Worked: {hours}"));
+                  pdfDoc.Add(new Paragraph($"Email: {email}"));
 
-                decimal totalAmount = hours * salaryRate; // Calculate total amount
-                pdfDoc.Add(new Paragraph($"Total Amount Due: {totalAmount:C}")); // Format as currency
+                  decimal totalAmount = hours * salaryRate; // Calculate total amount
+                  pdfDoc.Add(new Paragraph($"Total Amount Due: {totalAmount:C}")); // Format as currency
+                  pdfDoc.Add(new Paragraph($"Salary Rate: {salaryRate:C}")); // Format as currency*/
 
                 pdfDoc.Close();
 

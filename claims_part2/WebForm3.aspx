@@ -105,27 +105,6 @@ li a:hover {
                 <br />
             </div>
 
-            <div class="auto-style9">
-                CELLPHONE NUMBER:<asp:TextBox ID="CellTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" TextMode="Phone" Width="157px" style="margin-left: 15px" Height="15px"></asp:TextBox>
-                <br />
-                <br />
-            </div>
-
-            <div class="auto-style9">
-                HOUR:<asp:TextBox ID="HourTextBox" runat="server" CssClass="auto-style3" ForeColor="#666666" TextMode="Number" Width="157px" style="margin-left: 141px" Height="15px"></asp:TextBox>
-                <br />
-                <br />
-            </div>
-
-            <div class="auto-style9">
-                EMAIL:<asp:TextBox ID="EmailTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" TextMode="Email" Width="157px" style="margin-left: 134px" Height="15px"></asp:TextBox>
-                <br />
-                <br />
-            </div>
-
-            <div class="auto-style9">
-                SALARY:<asp:TextBox ID="SalaryTextBox" runat="server" CssClass="auto-style23" ForeColor="#666666" TextMode="Number" Width="157px" style="margin-left: 127px" Height="15px"></asp:TextBox>
-            </div>
                 <div class="auto-style8">
                 <asp:Button ID="BtnSave" runat="server" CssClass="auto-style10"
                             Text="SAVE"
