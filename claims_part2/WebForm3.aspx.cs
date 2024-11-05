@@ -153,7 +153,7 @@ namespace claims_part2
 
                 // Generate PDF invoice
                 Document pdfDoc = new Document();
-                string pdfPath = Server.MapPath("~/Invoices/Invoice_" + lectureID + ".pdf");
+                string pdfPath = Server.MapPath("~/Invoice" + lectureID + ".pdf");
                 PdfWriter.GetInstance(pdfDoc, new FileStream(pdfPath, FileMode.Create));
                 pdfDoc.Open();
 
