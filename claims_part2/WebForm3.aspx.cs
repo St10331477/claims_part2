@@ -76,16 +76,12 @@ namespace claims_part2
 
             try
             {
-                using (SqlCommand cmd = new SqlCommand("UPDATE TBLLECTURECLAIM SET LectureName = @LectureName, ModuleCode = @ModuleCode, ModuleName = @ModuleName, CellPhoneNumber = @CellPhoneNumber, HOURS = @Hours, Email = @Email, SalaryRate = @SalaryRate WHERE LectureID = @LectureID", con))
+                using (SqlCommand cmd = new SqlCommand("UPDATE TBLLECTURECLAIM SET LectureName = @LectureName, ModuleCode = @ModuleCode, ModuleName = @ModuleName  WHERE LectureID = @LectureID", con))
                 {
                     cmd.Parameters.AddWithValue("@LectureID", Convert.ToInt32(LectureIDTextBox.Text));
                     cmd.Parameters.AddWithValue("@LectureName", LectureNameTextBox.Text);
                     cmd.Parameters.AddWithValue("@ModuleCode", Convert.ToInt32(ModuleCodeTextBox.Text));
                     cmd.Parameters.AddWithValue("@ModuleName", ModuleNameTextBox.Text);
-                    /*cmd.Parameters.AddWithValue("@CellPhoneNumber", CellTextBox.Text);
-                    cmd.Parameters.AddWithValue("@Hours", Convert.ToInt32(HourTextBox.Text));
-                    cmd.Parameters.AddWithValue("@Email", EmailTextBox.Text);
-                    cmd.Parameters.AddWithValue("@SalaryRate", Convert.ToDecimal(SalaryTextBox.Text));*/
 
                     con.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
@@ -124,9 +120,7 @@ namespace claims_part2
                 int lectureID = Convert.ToInt32(LectureIDTextBox.Text);
 
                 // Fetch data from database for invoice generation
-                string lectureName, moduleCode, moduleName, cellPhoneNumber, email;
-                int hours;
-                decimal salaryRate;
+                string lectureName, moduleCode, moduleName;
 
                 using (SqlCommand cmd = new SqlCommand("SELECT * FROM TBLLECTURECLAIM WHERE LectureID = @LectureID", con))
                 {
@@ -139,10 +133,7 @@ namespace claims_part2
                         lectureName = reader["LectureName"].ToString();
                         moduleCode = reader["ModuleCode"].ToString();
                         moduleName = reader["ModuleName"].ToString();
-                        /*cellPhoneNumber = reader["CellPhoneNumber"].ToString();
-                        hours = Convert.ToInt32(reader["HOURS"]);
-                        email = reader["Email"].ToString();
-                        salaryRate = Convert.ToDecimal(reader["SalaryRate"]);*/
+                        
                     }
                     else
                     {
@@ -153,7 +144,7 @@ namespace claims_part2
 
                 // Generate PDF invoice
                 Document pdfDoc = new Document();
-                string pdfPath = Server.MapPath("~/Invoice" + lectureID + ".pdf");
+                string pdfPath = Server.MapPath("C:\\Users\\RC_Student_lab\\source\\repos\\claims_part2\\claims_part2\\Invoice\\" + lectureID + ".pdf");
                 PdfWriter.GetInstance(pdfDoc, new FileStream(pdfPath, FileMode.Create));
                 pdfDoc.Open();
 
@@ -163,14 +154,6 @@ namespace claims_part2
                 pdfDoc.Add(new Paragraph($"Lecture Name: {lectureName}"));
                 pdfDoc.Add(new Paragraph($"Module Code: {moduleCode}"));
                 pdfDoc.Add(new Paragraph($"Module Name: {moduleName}"));
-                /*  pdfDoc.Add(new Paragraph($"Cell Phone Number: {cellPhoneNumber}"));
-                  pdfDoc.Add(new Paragraph($"Hours Worked: {hours}"));
-                  pdfDoc.Add(new Paragraph($"Email: {email}"));
-
-                  decimal totalAmount = hours * salaryRate; // Calculate total amount
-                  pdfDoc.Add(new Paragraph($"Total Amount Due: {totalAmount:C}")); // Format as currency
-                  pdfDoc.Add(new Paragraph($"Salary Rate: {salaryRate:C}")); // Format as currency*/
-
                 pdfDoc.Close();
 
                 // Provide download link for the generated PDF
