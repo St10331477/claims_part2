@@ -35,7 +35,7 @@ namespace claims_part2
                 int lectureID = Convert.ToInt32(LectureIDTextBox.Text);
 
                 // Fetch data from database
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM TBLLECTURECLAIM WHERE LectureID = @LectureID", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT LectureName,ModuleCode,ModuleName  FROM TBLLECTURECLAIM WHERE LectureID = @LectureID", con))
                 {
                     cmd.Parameters.AddWithValue("@LectureID", lectureID);
                     con.Open();
@@ -122,7 +122,7 @@ namespace claims_part2
                 // Fetch data from database for invoice generation
                 string lectureName, moduleCode, moduleName;
 
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM TBLLECTURECLAIM WHERE LectureID = @LectureID", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT LectureName,ModuleCode,ModuleName FROM TBLLECTURECLAIM WHERE LectureID = @LectureID", con))
                 {
                     cmd.Parameters.AddWithValue("@LectureID", lectureID);
                     con.Open();
@@ -159,10 +159,6 @@ namespace claims_part2
                 // Provide download link for the generated PDF
                 Response.ContentType = "application/pdf";
                 Response.AppendHeader("Content-Disposition", "attachment; filename=Invoice_" + lectureID + ".pdf");
-                Response.TransmitFile(pdfPath);
-                Response.End();
-
-                // Instead of Response.End(), use TransmitFile and CompleteRequest
                 Response.TransmitFile(pdfPath);
 
                 // Call CompleteRequest to end the request without aborting the thread
