@@ -144,8 +144,8 @@ namespace claims_part2
 
                 // Generate PDF invoice
                 Document pdfDoc = new Document();
-                string pdfPath = Server.MapPath("C:\\Users\\RC_Student_lab\\source\\repos\\claims_part2\\claims_part2\\Invoice\\" + lectureID + ".pdf");
-                PdfWriter.GetInstance(pdfDoc, new FileStream(pdfPath, FileMode.Create));
+                // Ensure that you have created the "Invoices" folder in your project directory
+                string pdfPath = Server.MapPath("~/Invoices/Invoice_" + lectureID + ".pdf"); PdfWriter.GetInstance(pdfDoc, new FileStream(pdfPath, FileMode.Create));
                 pdfDoc.Open();
 
                 // Add content to PDF
@@ -161,6 +161,12 @@ namespace claims_part2
                 Response.AppendHeader("Content-Disposition", "attachment; filename=Invoice_" + lectureID + ".pdf");
                 Response.TransmitFile(pdfPath);
                 Response.End();
+
+                // Instead of Response.End(), use TransmitFile and CompleteRequest
+                Response.TransmitFile(pdfPath);
+
+                // Call CompleteRequest to end the request without aborting the thread
+                Context.ApplicationInstance.CompleteRequest();
             }
             catch (Exception ex)
             {

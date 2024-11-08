@@ -302,7 +302,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Invoice\" />
+    <Folder Include="Invoices\" />
     <Folder Include="PDF FILE\" />
   </ItemGroup>
   <ItemGroup>
